@@ -7,6 +7,12 @@
       },
       {
         "name": "ggplot2"
+      },
+      {
+        "name": "sf"
+      },
+      {
+        "name": "units"
       }
     ]
   },
