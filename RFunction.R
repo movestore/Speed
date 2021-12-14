@@ -12,7 +12,7 @@ rFunction = function(data) {
     }
     if(is.null(unt)){logger.warn("It seems that the projection does not have defined units, please check the projection in the study summary, and use changeProjection if necesary")} ## THIS WARNING HAS TO BE REWRITTEN!!!!! ITS BASICALLY A PLACEHOLDER. I actually do not know if this can happen, but just in case...
     unts <- as_units(paste0(unt,"/s"))
-    data$speed <- set_units(unlist(lapply(speed(data), function(x) c(NA, as.vector(x)))),unts,mode = "standard")
+    data$speed <- set_units(unlist(lapply(speed(data), function(x) c(as.vector(x), NA))), unts, mode = "standard")
     
     if(length(levels(trackId(data)))==1){
       dataDF <- data.frame(speed=data$speed,indv=namesIndiv(data))

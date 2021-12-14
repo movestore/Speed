@@ -1,14 +1,14 @@
-# Speed between locations
+# Speed Between Locations
 
 MoveApps
 
-Github repository: github.com/movestore/..................
+Github repository: https://github.com/movestore/Speed_BetweenLocations
 
 ## Description
 Calculation of the speed between consecutive locations.
 
 ## Documentation
-This App calculates speed between each consecutive locations. This measurement is a segment characteristic, and will be assigned to the second location of each segment. Therefore the speed of the first location of a track will be set to NA.
+This App calculates speed between each consecutive locations. This measurement is a segment characteristic, and will be assigned to the first location of each segment. Therefore the speed of the last location of the track will be set to NA.
 
 **Units**: map units/second. If the the coordinates are geographic (i.e.long/lat) all values are returned in "m/s", otherwise in the "map units/second" of the current projection. To check your projection go to:....
 
