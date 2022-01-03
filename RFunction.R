@@ -2,6 +2,7 @@ library('move')
 library("ggplot2")
 library("sf")
 library("units")
+library("ggforce")
 
 ## add in readme: "To check your projection go to:.... " in documentation when this is possible
 
@@ -42,17 +43,17 @@ rFunction <-  function(data) {
     
     if(length(levels(trackId(data)))==1){
       dataDF <- data.frame(speed=data$speed,indv=namesIndiv(data))
-      speedHist <- ggplot(dataDF, aes(as.numeric(speed)))+geom_histogram(bins=100)+facet_grid(~indv)+ xlab(paste0("Speed ",paste0("(",udunt,"/s)")))+theme_bw()
+      speedHist <- ggplot(dataDF, aes(speed))+geom_histogram(bins=100)+facet_grid(~indv)+ xlab("Speed")+theme_bw()
       pdf(paste0(Sys.getenv(x = "APP_ARTIFACTS_DIR", "/tmp/"), "speeds_histogram.pdf"))
       print(speedHist)
       dev.off()
     } else {
     pdf(paste0(Sys.getenv(x = "APP_ARTIFACTS_DIR", "/tmp/"), "speeds_histogram.pdf"))
-    speedHistAll <- ggplot(data@data, aes(as.numeric(speed)))+geom_histogram(bins=100)+ xlab(paste0("Speed ",paste0("(",udunt,"/s)")))+ggtitle("All Individuals") +theme_bw()
+    speedHistAll <- ggplot(data@data, aes(speed))+geom_histogram(bins=100)+ xlab("Speed")+ggtitle("All Individuals") +theme_bw()
     print(speedHistAll)
     lapply(split(data), function(x){
       dataDF <- data.frame(speed=x$speed, indv=namesIndiv(x)) 
-      speedHist <- ggplot(dataDF, aes(as.numeric(speed)))+geom_histogram(bins=100)+facet_grid(~indv)+ xlab(paste0("Speed ",paste0("(",udunt,"/s)")))+theme_bw()
+      speedHist <- ggplot(dataDF, aes(speed))+geom_histogram(bins=100)+facet_grid(~indv)+ xlab("Speed")+theme_bw()
       print(speedHist)
     })
     dev.off() 

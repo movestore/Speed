@@ -14,7 +14,7 @@ This App calculates speed between each consecutive locations. This measurement i
 
 A histogram of the speed distribution of all individuals and per individual is automatically created and can be downloaded in the output as a pdf
 
-A column named _**speed**_ will be appended to the dataset that is returned for further use in next Apps.
+A column named _**speed**_ will be appended to the dataset that is returned for further use in next Apps. This column also contains the **unit** information in which the speed was calculated.
 
 ### Input data
 moveStack in Movebank format
